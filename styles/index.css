@@ -1,188 +1,66 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
 .auth-main  {
     display: block;
     overflow: hidden;
+    height: 100vh;
+    background-color: #0019e9;
+    background-image: linear-gradient(180deg, #0019e9 0%, #ffffff 60%);
 }
 
 .auth-main > div {
-    border: solid 2px darkgray;
-    width: 70%;
-    margin:10% auto;
     text-align: center;
-    padding: 2rem;
+
+}
+
+.auth-main > #bImage > h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin:2rem 0 1rem 0;
+    text-transform: capitalize;
+    /* color: #3e4edb;
+    color: linear-gradient(160deg, #3e4edb 0%, #ffffff 55%); */
+    ;
+}
+
+.auth-main > #bImage > h3 {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.sponDiv {
+    width: 100%;
+    height: 250px;
     border-radius: 0.5rem;
-    background-color: darkgray;
+    margin-top: 5rem;
 }
 
-.auth-main > div > h1,h3 {
-    margin-bottom: 1rem;
-}
-
-.auth-main > div > button {
-    width: 40%;
-    margin-top: 1rem;
-    padding: 0.2rem;
-    border-radius: 1rem;
-    border: none;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
-.auth-main > div > ul {
-    color:#000;
-    list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-}
-
-.auth-main > div > ul > li {
-    margin-top: 10px;
+.sponDiv img {
+    width: 100%;
+    height: 250px;
 }
 
 a {
-    color: #000;
+    color: #fff;
     text-decoration: none;
-}
-
-.selectionBtn {
-    width: 70%;
-    margin: 1rem auto;
-}
-
-.selectionBtn > span {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 0 auto;
-    padding: 5px;
+    text-transform: capitalize;
 }
 
 .selectionBtn > span > button {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
     border: none;
+    border-radius: 1rem;
+    margin-top: 3.5rem;
+    background-color: #0019e9;
+    padding: 0.7rem;
     width: 40%;
 }
 
-.signUpMain {
-    overflow: hidden;
-}
-
-.signUpForm {
-    margin: 5rem auto;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: solid 1px darkgray;
-    background-color: darkgray;
-}
-
-.signUpForm > input {
-    padding: 5px;
-    width: 80%;
-    border-radius: 0.5rem;
-    border: none;
-    outline: none;
-    margin-bottom: 0.5rem;
-}
-
-.signUpForm > button {
-    width: 60%;
-    padding: 5px;
-    border-radius: 0.5rem;
-    border: none;
-}
-
-.signUpDiv > p {
-    border: solid 1px darkgray;
-    width: fit-content;
-    border-radius: 50%;
-    background-color: darkgray;
-    color: #fff;
-    padding:0.5rem;
-}
-
-.signUpDiv > p > a {
-    color: #fff;
-}
-
-.signUpForm > h1 {
-    text-transform: capitalize;
-}
-
-.loginMain {
-    overflow: hidden;
-}
-
-.loginForm {
-    margin: 5rem auto;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.5rem;
-    border: solid 1px darkgray;
-    background-color: darkgray;
-}
-
-.loginForm > input {
-    padding: 5px;
-    width: 80%;
-    border-radius: 0.5rem;
-    border: none;
-    outline: none;
-    margin-bottom: 0.5rem;
-}
-
-.loginForm > button {
-    width: 60%;
-    padding: 5px;
-    border-radius: 0.5rem;
-    border: none;
-}
-
-.loginDiv > p {
-    border: solid 1px darkgray;
-    width: fit-content;
-    border-radius: 50%;
-    background-color: darkgray;
-    color: #fff;
-    padding:0.5rem;
-}
-
-.loginDiv > p > a {
-    color: #fff;
-}
-
-.loginForm > h1 {
-    text-transform: capitalize;
-}
-
-.errorPopUp {
-    border: solid;
-    width: fit-content;
-    padding: 0 0.5rem;
-    border-radius: 1rem;
-    background-color: darkgray;
-    color: #fff;
-    position: relative;
-    left: 180%;
-}
-
-.errorPopUp > .errorMessage {
-    text-transform: capitalize;
-
-}
 
 
 /* HTML: <div class="loader"></div> */
@@ -212,4 +90,87 @@ a {
     25%,49.99% {transform: rotate(90deg)}
     50%,74.99% {transform: rotate(180deg)}
     75%,100%   {transform: rotate(270deg)}
+  }
+
+  @media screen and (max-width: 1024px) {
+    .auth-main  {
+        display: block;
+        overflow: hidden;
+        background-color: #0019e9;
+        background-image: linear-gradient(180deg, #0019e9 0%, #ffffff 70%);
+        height: 100vh;
+    }
+
+    .sponDiv {
+        margin-top: 15rem;
+        height: 350px;
+    }
+
+    .sponDiv img {
+        height: 350px;
+    }
+
+    .selectionBtn > span > button {
+        border: none;
+        border-radius: 1rem;
+        margin-top: 3.5rem;
+        background-color: #0019e9;
+        padding: 1rem;
+        font-size: 1.5rem;
+        width: 40%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .auth-main  {
+        display: block;
+        overflow: hidden;
+        background-color: #0019e9;
+        background-image: linear-gradient(180deg, #0019e9 0%, #ffffff 50%);
+        height: 100vh;
+        padding: 2px;
+    }
+
+    .sponDiv {
+        margin-top: 5rem;
+        height: 350px;
+    }
+
+    .auth-main > #bImage > h1  {
+        font-size: 1.4rem;
+    }
+
+    .auth-main > #bImage > h3 {
+        font-size: 1rem;
+    }
+
+    .selectionBtn > span > button {
+        border: none;
+        border-radius: 1rem;
+        margin-top: 3.5rem;
+        background-color: #0019e9;
+        padding: 0.3rem;
+        font-size: 1rem;
+        width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 290px) {
+    .auth-main > #bImage > h1  {
+        font-size: 1.1rem;
+    }
+
+    .auth-main > #bImage > h3 {
+        font-size: 0.8rem;
+    }
+
+    .selectionBtn > span > button {
+        border: none;
+        border-radius: 1rem;
+        margin-top: 3.5rem;
+        background-color: #0019e9;
+        padding: 0.3rem;
+        font-size: 1rem;
+        width: 70%;
+    }
   }

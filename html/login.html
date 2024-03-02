@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/authstyle.css">
     <title>login</title>
 </head>
 <body>
-  <main class="loginMain">
+  <main class="signUpMain">
     <section class="errorPopUp">
-        <h2 class="errorMessage">error message</h2>
+        <h2 class="errorMessage">error message</h2> 
     </section>
-    <div class="loginDiv">
-        <p><a href="../index.html"><=</a></p>
-        <form class="loginForm">
-            <h1>login</h1>
-            <input type="email" name="email" placeholder="enter your email">
-            <input type="password" name="password" placeholder="enter your password">
-            <button>login</button>
-        </form>
-    </div>
+    <section class="loginDiv">
+        <div class="formDiv">
+            <form class="signUpForm loginForm">
+                <h1>welcome back</h1>
+                <p>fill in the form to login to your account</p>
+                <input type="email" name="email" placeholder="eg@gmail.com">
+                <input type="password" name="password" placeholder="password">
+                <button>login</button>
+            </form>
+
+            <h2>dont have an account? <a href="./signup.html">sign up</a></h2>
+        </div>
+        <div class="imageDiv">
+            <img class="signUpImg" src="" alt="">
+        </div>
+    </section>
   </main>
     <script type="module" src="../dist/login.bundle.js"></script>
 </body>

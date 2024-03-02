@@ -1,0 +1,248 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.signUpMain {
+    overflow: hidden;
+}
+
+/* error styleing */
+
+.errorPopUp {
+    border: solid 1px;
+    margin-top: 5px;
+    padding: 5px;
+    width: fit-content;
+    text-align: center;
+    position: relative;
+    left: 183%;
+}
+
+.errorMessage {
+    text-transform: capitalize;
+}
+
+/* error styleing end */
+
+.signUpDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10% auto;
+}
+
+.loginDiv {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin: 10% auto;
+}
+
+.signUpDiv > .formDiv {
+    width: 55%;
+    height: 400px;
+    padding: 0.5rem;
+}
+
+.loginDiv > .formDiv {
+    width: 55%;
+    height: 400px;
+    padding: 0.5rem;
+}
+
+.signUpForm {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width:60%;
+    padding: 0.5rem;
+}
+
+.signUpForm h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    margin: 1rem 0 0.5rem 0;
+}
+.signUpForm p {
+    margin:  0 0 1.5rem 0;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.signUpForm input {
+    padding: 5px;
+    margin-bottom: 8px;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: rgb(231, 231, 231);
+    outline: none;
+}
+
+.passError {
+    display: none;
+    font-size: 0.7rem;
+    text-transform: capitalize;
+    color: rgb(229, 78, 78);
+}
+
+.signUpForm button {
+    margin-top: 1rem;
+    border: none;
+    padding: 5px;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-color: #0019e9;
+}
+
+.formDiv h2 {
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.formDiv h2 a {
+    text-decoration: none;
+    color: #0019e9;
+}
+
+.imageDiv {
+    width:40%;
+}
+
+.imageDiv > img {
+    width: 99%;
+    height: 390px;
+    border-radius: 0.5rem;
+}
+
+@media screen and (max-width: 1150px) {
+
+    .signUpMain {
+        overflow: hidden;
+        height: 100vh;
+    } 
+
+    .signUpDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        margin: 0% auto;
+    }
+    
+    .loginDiv {
+        display: flex;
+        align-items: center;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        margin: 0% auto;
+    }
+
+
+    .signUpDiv > .formDiv {
+        width: 80%;
+        height: auto;
+    }
+    
+    .loginDiv > .formDiv {
+        width: 80%;
+        height: auto;
+    }
+
+    .imageDiv {
+        width:75%;
+    }
+
+    .signUpForm {
+        width: 100%;
+    }
+
+    .signUpForm h1 {
+        font-size: 4rem;
+        text-transform: capitalize;
+        margin: 1rem 0 0.5rem 0;
+    }
+
+    .signUpForm p {
+        margin:  0 0 1.5rem 0;
+        font-size: 2rem;
+        text-transform: capitalize;
+    }
+
+    .signUpForm input {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+    .loginForm input {
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 2rem;
+    }
+
+    .signUpForm button {
+        font-size: 2rem;
+        padding: 20px;
+    }
+
+    .formDiv h2 {
+        font-size: 2rem;
+    }
+   
+}
+
+@media screen and (max-width: 600px) {
+    .imageDiv {
+        display: none;
+    }
+
+    .signUpDiv {
+        margin: 10% auto;
+    }
+    
+    .loginDiv {
+        margin: 10% auto;
+    }
+
+    .signUpDiv > .formDiv {
+        width: 100%;
+        height: auto;
+    }
+    
+    .loginDiv > .formDiv {
+        width: 100%;
+        height: auto;
+    }
+
+    .signUpForm h1 {
+        font-size: 2rem;
+    }
+
+    .signUpForm p {
+        font-size: 1rem;
+    }
+
+    .signUpForm input {
+        padding: 7px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+    .loginForm input {
+        padding: 7px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .signUpForm button {
+        font-size: 1rem;
+        padding: 7px;
+    }
+
+    .formDiv h2 {
+        font-size: 1rem;
+    }
+}

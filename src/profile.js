@@ -2,6 +2,7 @@ import {login} from "./"
 const logout = document.querySelector(".logOut");
 const emailTag = document.querySelector(".emailTag");
 const passwordTag = document.querySelector(".passwordTag")
+let imgText = document.querySelector(".imgDiv h1")
 // import { authChange } from './login.js';
 // import { getAuth } from 'firebase/auth';
 
@@ -37,6 +38,7 @@ onAuthStateChanged(signOutAuth, (user) => {
     const {dispalyName,email,phoneNumber,photoURL,providerId,uid} = f1
     emailTag.textContent = `${email}`;
     passwordTag.textContent = `${providerId}`
+    imgText.textContent = `${email[0]}`
   } else {
     
   }

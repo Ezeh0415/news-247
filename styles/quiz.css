@@ -121,10 +121,15 @@ section:last-of-type div:last-of-type ul li:hover {
     height: 40px;
     width: 40px;
     font-size: 1rem;
-    background-color: darkgray;
+    background-color:#0019e9;
     border: none;
     color: whitesmoke;
     text-transform: capitalize;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 2rem;
 }
 
 .navBar > div > button:hover {
@@ -429,7 +434,7 @@ footer > h2 {
         z-index: 99;
         top: 4rem;
         left: 58%;
-        background-color: darkgray;
+        background-color: #0019e9;
         color: #fff;
         padding: 1rem;
         transition: 1s;
@@ -450,7 +455,7 @@ footer > h2 {
         font-size: 1.5rem;
         padding:0.5rem;
         border-radius: 0.5rem;
-        background-color: darkgray;
+        background-color:#0019e9;
         color: #fff;
         transition: 2s;
     }

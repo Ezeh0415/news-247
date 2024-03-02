@@ -22,7 +22,8 @@ let footerP3 = document.querySelector("footer .p3");
 let footerP4 = document.querySelector("footer .p4");
 let footerP5 = document.querySelector("footer .p5");
 let footerP6 = document.querySelector("footer .p6");
-let homeMain = document.querySelector(".home-main")
+let homeMain = document.querySelector(".home-main");
+let profPic = document.querySelector(".profPic")
 // let loader = document.querySelector(".loader")
 let newsCount = 0;
 let newsCount1 = 2;
@@ -95,6 +96,38 @@ navClose.style.display = "none";
 //   // }
 //   // loadMovies()
 // }
+
+
+import {initializeApp} from "firebase/app";
+import {
+  getAuth,
+  onAuthStateChanged,
+} from "firebase/auth"
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDJvn_GqogsJU3XE1SXlBgFVbi4bEPUd0w",
+  authDomain: "fir-9-dojo-4da5d.firebaseapp.com",
+  projectId: "fir-9-dojo-4da5d",
+  storageBucket: "fir-9-dojo-4da5d.appspot.com",
+  messagingSenderId: "250392842527",
+  appId: "1:250392842527:web:ac688b160693fce282e02a"
+};
+
+// initialized firebase
+initializeApp(firebaseConfig);
+
+// adding auth
+const signOutAuth = getAuth();
+
+onAuthStateChanged(signOutAuth, (user) => {
+  if (user) {
+    const [f1] = user.providerData
+    const {dispalyName,email,phoneNumber,photoURL,providerId,uid} = f1
+    profPic.textContent = `${email[0]}`
+  } else {
+    
+  }
+});
 
 
 window.addEventListener('load', function() {

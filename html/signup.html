@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/authstyle.css">
     <title>sign up</title>
 </head>
 <body>
@@ -11,15 +11,25 @@
     <section class="errorPopUp">
         <h2 class="errorMessage">error message</h2>
     </section>
-    <div class="signUpDiv">
-        <p><a href="../index.html"><=</a></p>
-        <form class="signUpForm">
-            <h1>sign up</h1>
-            <input type="email" name="email" placeholder="enter your email">
-            <input type="password" name="password" placeholder="enter your password">
-            <button>sign up</button>
-        </form>
-    </div>
+    
+    <section class="signUpDiv">
+        <div class="formDiv">
+            <form class="signUpForm">
+                <h1>sign up</h1>
+                <p>fill in the form and create an account</p>
+                <input type="email" name="email" placeholder="eg@gmail.com">
+                <input type="password" name="password" placeholder="password">
+                <i class="passError">password dosent match</i>
+                <input type="password" name="confirmPassword" placeholder="confirm password">
+                <button>sign up</button>
+            </form>
+
+            <h2>already have an accout? <a href="./login.html">sign in</a></h2>
+        </div>
+        <div class="imageDiv">
+            <img class="signUpImg" src="" alt="">
+        </div>
+    </section>
   </main>
      <script type="module" src="../dist/signup.bundle.js"></script> 
 </body>
