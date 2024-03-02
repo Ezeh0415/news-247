@@ -6,7 +6,7 @@ let newsCount = 0;
 import {initializeApp} from "firebase/app";
 import {
   getAuth,
- signInWithEmailAndPassword
+  signInWithEmailAndPassword
 } from "firebase/auth"
 
 const firebaseConfig = {
