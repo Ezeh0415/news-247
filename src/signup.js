@@ -36,7 +36,7 @@ signUpForm.addEventListener("submit",(event) => {
     if (password === confirmPassword) {
       createUserWithEmailAndPassword(auth,email,confirmPassword)
       .then((cred) => {
-        window.location.href = "Home.html";
+        window.location.href = "html/Home.html"
         console.log("user created",cred.user);
         signUpForm.reset();
       })

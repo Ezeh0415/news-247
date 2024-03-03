@@ -34,7 +34,7 @@ loginForm.addEventListener("submit", (e) => {
     signInWithEmailAndPassword(auth,email,password)
     .then((cred) => {
       console.log(cred.user)
-      window.location.href = "home.html"
+      window.location.href = "html/Home.html"
     })
     .catch((err) => {
         errorPopUp.style.left = "50%"
