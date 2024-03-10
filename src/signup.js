@@ -2,13 +2,17 @@ const signUpForm = document.querySelector(".signUpForm");
 let errorPopUp = document.querySelector(".errorPopUp");
 let errorMessage = document.querySelector(".errorMessage");
 let passError = document.querySelector(".passError ");
-let signUpImg = document.querySelector(".signUpImg")
+let signUpImg = document.querySelector(".signUpImg");
+// let signUpGoogleBtn = document.querySelector(".signUpGoogleBtn");
 let newsCount = 0;
 
 import {initializeApp} from "firebase/app";
 import {
   getAuth,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  signInWithPopup
 } from "firebase/auth"
 
 const firebaseConfig = {
@@ -51,6 +55,83 @@ signUpForm.addEventListener("submit",(event) => {
       passError.style.display = "block";
     }
   })
+
+  // provider.addScope('user_birthday');
+
+  // auth.languageCode = 'it'
+
+  // provider.setCustomParameters({
+  //   'display': 'popup'
+  // });
+
+  // signUpGoogleBtn.addEventListener("click", () => {
+  //   signInWithPopup(auth, provider)
+  //   .then((result) => {
+  //     // The signed-in user info.
+  //     const user = result.user;
+  //     console.log(user);
+  //     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  //     const credential = FacebookAuthProvider.credentialFromResult(result);
+  //     const accessToken = credential.accessToken;
+  
+  //     // IdP data available using getAdditionalUserInfo(result)
+  //     // ...
+  //   })
+  //   .catch((error) => {
+  //     // Handle Errors here.
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // The email of the user's account used.
+  //     const email = error.customData.email;
+  //     // The AuthCredential type that was used.
+  //     const credential = FacebookAuthProvider.credentialFromError(error);
+  
+  //     // ...
+  //   });
+  // })
+
+  // function signInWithGoogle() {
+  //   const provider = new firebase.auth.GoogleAuthProvider();
+  //   firebase.auth().signInWithPopup(provider)
+  //     .then((result) => {
+  //       // This gives you a Google Access Token.
+  //       const token = result.credential.accessToken;
+  //       // This gives you a Google user object.
+  //       const user = result.user;
+  //       console.log(user,token);
+  //     })
+  //     .catch((error) => {
+  //       // Handle errors here.
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       // The email of the user's account used.
+  //       const email = error.email;
+  //       // The AuthCredential type that was used.
+  //       const credential = error.credential;
+  //     });
+  // }
+
+  // signUpGoogleBtn.addEventListener("click" , signInWithGoogle)
+
+// const provider = new GoogleAuthProvider();
+
+// signInWithPopup(auth, provider)
+//   .then((result) => {
+//     // This gives you a Google Access Token.
+//     const credential = GoogleAuthProvider.credentialFromResult(result);
+//     const token = credential.accessToken;
+//     // This gives you a Google user object.
+//     const user = result.user;
+//   })
+//   .catch((error) => {
+//     // Handle errors here.
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     // The email of the user's account used.
+//     const email = error.email;
+//     // The AuthCredential type that was used.
+//     const credential = GoogleAuthProvider.credentialFromError(error);
+//   });
 
 window.addEventListener("load", () => {
   let API_KEY = "6065a270b19a4c6c8b3bc836f66a7a67";

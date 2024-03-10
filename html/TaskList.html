@@ -21,25 +21,23 @@
       </section>
       <section class="popUp">
          <div>
-            <a href="../index.html"> <i class="fas fa-arrow-left  back"></i></a>
+            <a href="../index.html" class="back"> back</a>
 
             <p class="popUp-text">task added</p>
          </div>
       </section>
      <section class="input-section">
         <div>
-           
-                <input type="text" name="title" id="title" placeholder="Title">
-                <input type="text" name="task" id="task" placeholder="task todo">
-                <button id="btn">submit</button>
-                <button class="editBtn btn">edit</button>
-          
+                <form class="TaskForm">
+                  <input type="text" name="title" id="title" placeholder="Title">
+                  <input type="text" name="task" id="task" placeholder="task todo">
+                  <button id="btn">submit</button>
+                </form>
         </div>
      </section>
      <section class="outPut-section">
-        <div>
-          
-        </div>
+      <div class="loader"></div>
+            <h2 class="error">error fetching the needed data</h2>
      </section>
    </main>
    <script type="module" src="../dist/taskList.bundle.js"></script>
