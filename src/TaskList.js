@@ -2,14 +2,14 @@ import {initializeApp} from "firebase/app";
 import {
     collection,
     onSnapshot,
-    getDocs,
     getFirestore,
     // addin gfunction
-    addDoc
+    addDoc,
+    deleteDoc,
+    doc
 } from 'firebase/firestore'
 let out = document.querySelector(".outPut-section ");
 let loader = document.querySelector(".loader");
-let error = document.querySelector(".error");
 let taskForm = document.querySelector(".TaskForm");
 
 const firebaseConfig = {
@@ -29,59 +29,52 @@ const db = getFirestore()
 // collection ref
 const colRef = collection(db, "books")
 
-// real time get collection data
-// let task = getDocs(colRef)
-// .then((snapshot) => {
-//   let books = []
-//     snapshot.docs.forEach((doc) => {
-//       books.push({...doc.data(), id: doc.id})
-//     })
-//     loader.style.display = "none";
-//     error.style.display = "block";
-//     if (books) {
-//      error.style.display = "none";
-//     for (let book of books) {
-//       let div = document.createElement("div")
-//       let h1 = document.createElement("h1");
-//       let p = document.createElement("p");
-//       div.classList.add("outPut");
-//       h1.textContent = `${book.title}`
-//       p.textContent = `${book.author}`
-//       div.appendChild(h1)
-//       div.appendChild(p)
-//       out.appendChild(div);
-//     }
-//    }
-// })
-
-
-
+// real time data
 onSnapshot(colRef, (snapshot) => {
-  let books = []
+  let books = [];
   snapshot.docs.forEach((doc) => {
-    books.push({...doc.data(), id: doc.id})
-  })
-  console.log(books)
+    books.push({...doc.data(), id: doc.id});
+  });
+
+  // Clear existing tasks
+
+
+  console.log(books);
   loader.style.display = "none";
-  error.style.display = "block";
-  if (books) {
-   error.style.display = "none";
-  for (let book of books) {
-    let div = document.createElement("div")
-    let h1 = document.createElement("h1");
-    let p = document.createElement("p");
-    div.classList.add("outPut");
-    h1.textContent = `${book.title}`
-    p.textContent = `${book.author}`
-    div.appendChild(h1)
-    div.appendChild(p)
-    out.appendChild(div);
+  
+  
+  if (books.length <= 0) {
+    let error = document.createElement("h2");
+    error.textContent = "error fetching the data needed";
+    out.appendChild(error);
+  } else {
+    out.innerHTML = '';
+    for (let book of books) {
+      let div = document.createElement("div");
+      let span = document.createElement("span")
+      let h3 = document.createElement("h3")
+      let h1 = document.createElement("h1");
+      let p = document.createElement("p");
+      div.classList.add("outPut");
+      h1.textContent = `${book.title}`;
+      p.textContent = `${book.author}`;
+      h3.textContent = "delete";
+      span.appendChild(h1)
+      span.appendChild(h3)
+      div.appendChild(span);
+      div.appendChild(p);
+      out.appendChild(div);
+
+      // adding a delete option
+      h3.addEventListener("click", () => {
+        const docRef = doc(db,"books",book.id)
+
+        deleteDoc(docRef)
+      })
+    }
   }
- }
-console.log("task added")
-})
-
-
+  console.log("task added");
+});
 
 taskForm.addEventListener("submit", (e) => {
   e.preventDefault()
