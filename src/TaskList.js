@@ -11,6 +11,7 @@ import {
 let out = document.querySelector(".outPut-section ");
 let loader = document.querySelector(".loader");
 let taskForm = document.querySelector(".TaskForm");
+let popUp = document.querySelector(".popUp-text");
 
 const firebaseConfig = {
     apiKey: "AIzaSyDJvn_GqogsJU3XE1SXlBgFVbi4bEPUd0w",
@@ -29,6 +30,18 @@ const db = getFirestore()
 // collection ref
 const colRef = collection(db, "books")
 
+
+taskForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+  addDoc(colRef, {
+   title: taskForm.title.value,
+   author: taskForm.task.value
+  })
+  .then(() => {
+   taskForm.reset()
+  })
+})
+
 // real time data
 onSnapshot(colRef, (snapshot) => {
   let books = [];
@@ -45,7 +58,7 @@ onSnapshot(colRef, (snapshot) => {
   
   if (books.length <= 0) {
     let error = document.createElement("h2");
-    error.textContent = "error fetching the data needed";
+    error.textContent = "error fetching the data needed or no task added";
     out.appendChild(error);
   } else {
     out.innerHTML = '';
@@ -68,21 +81,11 @@ onSnapshot(colRef, (snapshot) => {
       // adding a delete option
       h3.addEventListener("click", () => {
         const docRef = doc(db,"books",book.id)
-
         deleteDoc(docRef)
+
       })
     }
   }
-  console.log("task added");
 });
 
-taskForm.addEventListener("submit", (e) => {
-  e.preventDefault()
-  addDoc(colRef, {
-   title: taskForm.title.value,
-   author: taskForm.task.value
-  })
-  .then(() => {
-   taskForm.reset()
-  })
-})
+

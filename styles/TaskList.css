@@ -26,7 +26,7 @@
     text-transform: capitalize;
 }
 
-.popUp > div > p {
+.popUp > div > h3 {
     text-transform: capitalize;
     font-size: 1.3rem;
     font-weight: bold;
@@ -35,7 +35,7 @@
     width: fit-content;
     border-radius: 0.5rem;
     transition: 2s;
-    margin-left: 100%;
+    margin: 1.5rem 0 0 10%;
 }
 
 .input-section > div > form {
@@ -238,6 +238,14 @@
     text-align: center;
     text-transform: capitalize;
     font-size: 2rem;
+}
+
+.outPut-section > div > h1 {
+    font-size: 1.5rem;
+}
+
+.outPut-section > div > p {
+    font-size: 1rem;
 }
 
 /* HTML: <div class="loader"></div> */

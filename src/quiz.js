@@ -26,9 +26,7 @@ let homeMain = document.querySelector(".home-main");
 let profPic = document.querySelector(".profPic")
 // let loader = document.querySelector(".loader")
 let newsCount = 0;
-let newsCount1 = 2;
-let newsCount2 = 3;
-let newsCount3 = 4;
+let newsCounts = 3;
 
 navClose.style.display = "none";
 
@@ -132,9 +130,11 @@ onAuthStateChanged(signOutAuth, (user) => {
 
 window.addEventListener('load', function() {
     let API_KEY = "6065a270b19a4c6c8b3bc836f66a7a67";
+    let API_KEY2 = "4b73ad3b736b14e112ab01b8393152a6";
     // let url = `https://newsapi.org/v2/everything?q=keyword&apiKey=${API_KEY}`;
     // let url2 = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
     // let url3 = `https://newsapi.org/v2/top-headlines/sources?apiKey=${API_KEY}`;
+    
 
     async function fetchData(url) {
       try {
@@ -169,81 +169,133 @@ window.addEventListener('load', function() {
     }
     
     // Example usage
-    const apiUrl = `https://newsapi.org/v2/everything?q=keyword&apiKey=${API_KEY}`;
+    const apiUrl = `https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=${API_KEY2}`;
     
     fetchData(apiUrl)
-      .then(data => {
-        if (data !== null) {
-          const {status,totalResults,articles} = data
-                 // adding img slider
-        let threeArticle = articles.slice(0,5);
-        img1.src = `${threeArticle[0].urlToImage}`
-        img2.src = `${threeArticle[4].urlToImage}`
-        img3.src = `${threeArticle[3].urlToImage}`
-        
-        console.log(threeArticle[0].author);
+    .then(data => {
+      if (data !== null) {
+        const {articles} = data;
+           let threeArticle = articles;
+           img1.src = `${threeArticle[1].image}`;
+           img2.src = `${threeArticle[4].image}`;
+           img3.src = `${threeArticle[3].image}`;
 
-        // auth bg image
+
+          let newsCountInterval  = setInterval(() => {
+           if (newsCounts < articles.length) {
+            
+             img4.src = `${articles[newsCounts].image}`
+             img4.alt = `${articles[newsCounts].content}`
+             firstP.textContent = `${articles[newsCounts].title}`
+             img5.src = `${articles[newsCounts].image}`
+             img5.alt = `${articles[newsCounts].content}`
+             h25.textContent = `${articles[newsCounts].title}`
+ 
+ 
+ 
+             img6.src = `${articles[newsCounts].image}`
+             img6.alt = `${articles[newsCounts].author}`
+             h26.textContent = `${articles[newsCounts].title}`
+ 
+ 
+ 
+             img7.src = `${articles[newsCounts].image}`
+             img7.alt = `${articles[newsCounts].author}`
+             h27.textContent = `${articles[newsCounts].title}`
+ 
+             img8.src = `${articles[newsCounts].image}`
+             img8.alt = `${articles[newsCounts].author}`
+             h28.textContent = `${articles[newsCounts].title}`
+ 
+             img9.src = `${articles[newsCounts].image}`;
+             img9.alt = `${articles[newsCounts].author}`;
+             thirdP.textContent = `${articles[newsCount].title}`;
+           } else {
+             clearInterval(newsCountInterval)
+           }
+          }, 15000);
+
+          footerP1.textContent = `${articles[0].source.name}`
+          footerP2.textContent = `${articles[2].source.name}`
+          footerP3.textContent = `${articles[3].source.name}`
+          footerP4.textContent = `${articles[8].source.name}`
+          footerP5.textContent = `${articles[5].source.name}`
+          footerP6.textContent = `${articles[6].source.name}`
+
+      }
+    })
+      // .then(data => {
+      //   if (data !== null) {
+      //     const {status,totalResults,articles} = data
+      //            // adding img slider
+      //   let threeArticle = articles.slice(0,5);
+      //   img1.src = `${threeArticle[0].urlToImage}`
+      //   img2.src = `${threeArticle[4].urlToImage}`
+      //   img3.src = `${threeArticle[3].urlToImage}`
+        
+      //   console.log(threeArticle[0].author);
+
+      //   // auth bg image
           
 
-       let newsCountInterval =  setInterval(() => {
-            if (newsCount < articles.length) {
-                newsCount += 1;
-                img4.src = `${articles[newsCount].urlToImage}`
-                img4.alt = `${articles[newsCount].author}`
-                firstP.textContent = `${articles[newsCount].description}`
-                img5.src = `${articles[newsCount].urlToImage}`
-                img5.alt = `${articles[newsCount].author}`
-                h25.textContent = `${articles[newsCount].title}`
-            } else {
-                clearInterval(newsCountInterval)
-            }
+      //  let newsCountInterval =  setInterval(() => {
+      //       if (newsCount < articles.length) {
+      //           newsCount += 1;
+      //           img4.src = `${articles[newsCount].urlToImage}`
+      //           img4.alt = `${articles[newsCount].author}`
+      //           firstP.textContent = `${articles[newsCount].description}`
+      //           img5.src = `${articles[newsCount].urlToImage}`
+      //           img5.alt = `${articles[newsCount].author}`
+      //           h25.textContent = `${articles[newsCount].title}`
+      //       } else {
+      //           clearInterval(newsCountInterval)
+      //       }
 
-        }, 10500);
+      //   }, 10500);
 
-       let newsCount1Interval = setInterval(() => {
+      //  let newsCount1Interval = setInterval(() => {
 
-             if (newsCount1 < articles.length) {
-                newsCount1 += 1;
-                img6.src = `${articles[newsCount1].urlToImage}`
-                img6.alt = `${articles[newsCount1].author}`
-                h26.textContent = `${articles[newsCount1].title}`
-            } else {
-              clearInterval(newsCount1Interval)
-            }
+      //        if (newsCount1 < articles.length) {
+      //           newsCount1 += 1;
+      //           img6.src = `${articles[newsCount1].urlToImage}`
+      //           img6.alt = `${articles[newsCount1].author}`
+      //           h26.textContent = `${articles[newsCount1].title}`
+      //       } else {
+      //         clearInterval(newsCount1Interval)
+      //       }
 
-        }, 10500);
+      //   }, 10500);
 
-       let newsCount2Interval = setInterval(() => {
+      //  let newsCount2Interval = setInterval(() => {
 
-            if (newsCount2 < articles.length) {
-                newsCount2 += 1;
-                img7.src = `${articles[newsCount2].urlToImage}`
-                img7.alt = `${articles[newsCount2].author}`
-                h27.textContent = `${articles[newsCount2].title}`
-            } else {
-              clearInterval(newsCount2Interval)
-            }
+      //       if (newsCount2 < articles.length) {
+      //           newsCount2 += 1;
+      //           img7.src = `${articles[newsCount2].urlToImage}`
+      //           img7.alt = `${articles[newsCount2].author}`
+      //           h27.textContent = `${articles[newsCount2].title}`
+      //       } else {
+      //         clearInterval(newsCount2Interval)
+      //       }
 
-        }, 10500);
+      //   }, 10500);
 
-       let newsCount3Interval = setInterval(() => {
+      //  let newsCount3Interval = setInterval(() => {
             
-            if (newsCount3 < articles.length) {
-                newsCount3 += 1;
-                img8.src = `${articles[newsCount3].urlToImage}`
-                img8.alt = `${articles[newsCount3].author}`
-                h28.textContent = `${articles[newsCount3].title}`
-            } else {
-              clearInterval(newsCount3Interval)
-            }
+      //       if (newsCount3 < articles.length) {
+      //           newsCount3 += 1;
+                // img8.src = `${articles[newsCount3].urlToImage}`
+                // img8.alt = `${articles[newsCount3].author}`
+                // h28.textContent = `${articles[newsCount3].title}`
+      //       } else {
+      //         clearInterval(newsCount3Interval)
+      //       }
 
-        }, 10500);
+      //   }, 10500);
 
-        } else {
-          // Handle error state
-        }
-      });
+      //   } else {
+      //     // Handle error state
+      //   }
+      // });
     
       // async function loadMovies() {
       //   const response = await fetch(url);
@@ -326,58 +378,58 @@ window.addEventListener('load', function() {
       // loadMovies()
 
 
-      async function fetchData2(url) {
-        try {
-          // Before fetching, set loading state
-          console.log('Loading...');
+      // async function fetchData2(url) {
+      //   try {
+      //     // Before fetching, set loading state
+      //     console.log('Loading...');
           
-          const response = await fetch(url);
+      //     const response = await fetch(url);
       
-          // Check if response is successful (status 200)
-          if (!response.ok) {
-            // If response is not successful, throw an error
-            throw new Error('Network response was not ok');
-          }
+      //     // Check if response is successful (status 200)
+      //     if (!response.ok) {
+      //       // If response is not successful, throw an error
+      //       throw new Error('Network response was not ok');
+      //     }
       
-          // Parse response as JSON
-          const data = await response.json();
+      //     // Parse response as JSON
+      //     const data = await response.json();
       
-          // After successful fetching, log data
-          console.log('Data fetched:', data);
+      //     // After successful fetching, log data
+      //     console.log('Data fetched:', data);
           
-          // Return the fetched data
-          return data;
-        } catch (error) {
-          // If any error occurs during fetching, log the error
-          console.error('Fetch error:', error.message);
+      //     // Return the fetched data
+      //     return data;
+      //   } catch (error) {
+      //     // If any error occurs during fetching, log the error
+      //     console.error('Fetch error:', error.message);
           
-          // Return null or any other appropriate value to indicate error state
-          return null;
-        } finally {
-          // Finally block will always execute, regardless of success or failure
-          console.log('Fetch completed.');
-        }
-      }
+      //     // Return null or any other appropriate value to indicate error state
+      //     return null;
+      //   } finally {
+      //     // Finally block will always execute, regardless of success or failure
+      //     console.log('Fetch completed.');
+      //   }
+      // }
       
-      // Example usage
-      const apiUrl2 =  `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
+      // // Example usage
+      // const apiUrl2 =  `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
       
-      fetchData2(apiUrl2)
-        .then(data => {
-          if (data !== null) {
-            const {status,totalResults,articles} = data
-            setInterval(() => {
-              newsCount += 1;
-            //  let = backgroundImages = `${articles[newsCount].urlToImage}`;
-            //  bgImage.style.backgroundImage = backgroundImages;
-              img9.src = `${articles[newsCount].urlToImage}`;
-              img9.alt = `${articles[newsCount].title}`;
-              thirdP.textContent = `${articles[newsCount].description}`;
-          },  10000);
-          } else {
-            // Handle error state
-          }
-        });
+      // fetchData2(apiUrl2)
+      //   .then(data => {
+      //     if (data !== null) {
+      //       const {status,totalResults,articles} = data
+      //       setInterval(() => {
+      //         newsCount += 1;
+      //       //  let = backgroundImages = `${articles[newsCount].urlToImage}`;
+      //       //  bgImage.style.backgroundImage = backgroundImages;
+      //         img9.src = `${articles[newsCount].urlToImage}`;
+      //         img9.alt = `${articles[newsCount].title}`;
+      //         thirdP.textContent = `${articles[newsCount].description}`;
+      //     },  10000);
+      //     } else {
+      //       // Handle error state
+      //     }
+      //   });
 
         async function fetchData3(url) {
           try {
